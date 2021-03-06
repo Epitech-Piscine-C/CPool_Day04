@@ -18,8 +18,7 @@ int     my_getnbr(char const *str)
     }
     while (str && str[i] && str[i] >= '0' && str[i] <= '9')
     {
-        nbr *= 10;
-        nbr += (str[i] - '0');
+        nbr = nbr * 10 + (str[i] - '0');
         ++i;
     }
     return nbr * neg;
@@ -32,6 +31,10 @@ int     main()
     printf("%d\n", my_getnbr("ki-0"));
     printf("%d\n", my_getnbr("p--12"));
     printf("%d\n", my_getnbr("-12345"));
+    printf("%d\n", my_getnbr("+−−−+−−++−−−+−−−+−−−+−42"));
+    printf("%d\n", my_getnbr("42a43"));
+    printf("%d\n", my_getnbr("11000000000000000000000042"));
+    printf("%d\n", my_getnbr("-11000000000000000000000042"));
 
     return 0;
 }
